@@ -17,7 +17,8 @@ namespace BlazorClient.Data
         {
             _predictionEnginePool = predictionEnginePool;
 
-            string labelsFileLocation = PathUtilities.GetPathFromBinFolder(Path.Combine("TFInceptionModel", "imagenet_comp_graph_label_strings.txt"));
+            //probleme here
+            string labelsFileLocation = "TFInceptionModel/imagenet_comp_graph_label_strings.txt";
             _labels = System.IO.File.ReadAllLines(labelsFileLocation);
 
         }

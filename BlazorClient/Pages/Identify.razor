@@ -27,27 +27,6 @@
 
 
 @code {
-    // List<IFileListEntry> selectedImages = new List<IFileListEntry>();
-
-    //  void OnImageFileSelected(IFileListEntry[] files)
-    //   {
-    //      selectedImages.AddRange(files);
-    //  }
-
-
-
-    /*  IReadOnlyList<IBrowserFile> selectedImages;
-
-      void OnImageFileSelected(InputFileChangeEventArgs eventArgs)
-      {
-          const int MaxAllowedFiles = 5;
-          selectedImages = eventArgs.GetMultipleFiles(MaxAllowedFiles);
-      }
-    */
-
-
-
-
     List<SelectedImage> selectedImages = new List<SelectedImage>();
 
     void OnImageFileSelected(IFileListEntry[] files)
@@ -62,52 +41,5 @@
     {
         selectedImages.Remove(image);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-
-    private List<IBrowserFile> loadedFiles = new();
-    private long maxFileSize = 1024 * 15;
-    private int maxAllowedFiles = 3;
-    private bool isLoading;
-
-    private void LoadFiles(InputFileChangeEventArgs e)
-    {
-        isLoading = true;
-        loadedFiles.Clear();
-
-        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
-        {
-            try
-            {
-                loadedFiles.Add(file);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("File: {Filename} Error: {Error}",
-                file.Name, ex.Message);
-            }
-        }
-
-        isLoading = false;
-    }
-
-
-
-
-*/
 
 }

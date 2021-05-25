@@ -18,9 +18,9 @@ namespace BlazorClient
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-
+            //Problem here 
             builder.Services.AddPredictionEnginePool<ImageInputData, ImageLabelPredictions>()
-            .FromFile(PathUtilities.GetPathFromBinFolder("PredictionModel.zip"));
+            .FromFile("PredictionModel.zip");
 
             builder.Services.AddSingleton<ImageClassificationService>();
 
