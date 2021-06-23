@@ -19,7 +19,12 @@ namespace BlazorClient.Data
 
             //probleme here
             string labelsFileLocation = "TFInceptionModel/imagenet_comp_graph_label_strings.txt";
-            _labels = System.IO.File.ReadAllLines(labelsFileLocation);
+
+            string rootDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../"));
+            string modelPath = Path.Combine(rootDir, "TFInceptionModel/imagenet_comp_graph_label_strings.txt");
+
+
+            _labels = File.ReadAllLines(modelPath);
 
         }
 
