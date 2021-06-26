@@ -4,6 +4,21 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <None Remove="TFInceptionModel\imagenet_comp_graph_label_strings.txt" />
+    <None Remove="TFInceptionModel\PredictionModel.zip" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TFInceptionModel\imagenet_comp_graph_label_strings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TFInceptionModel\PredictionModel.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="BlazorInputFile" Version="0.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.5" />
@@ -14,10 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModelBuilder\ModelBuilder.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\data\" />
   </ItemGroup>
 
 

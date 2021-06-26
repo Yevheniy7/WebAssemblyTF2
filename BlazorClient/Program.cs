@@ -13,7 +13,10 @@ using System.Threading.Tasks;
 namespace BlazorClient
 {
     public class Program
+
     {
+        private readonly string _mlnetModelFilePath;
+
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -21,21 +24,31 @@ namespace BlazorClient
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            //string rootDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../"));
-            //string modelPath = Path.Combine(rootDir, "TFInceptionModel/PredictionModel.zip");
+            string rootDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../"));
+            string modelPath = Path.Combine(rootDir, "TFInceptionModel/PredictionModel.zip");
 
             Uri BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
-            String x = BaseAddress.ToString() + "PredictionModel.zip";
+            String x = BaseAddress.ToString() + "data/TFInceptionModel/PredictionModel.zip";
             //Problem here
-            
-            builder.Services.AddPredictionEnginePool<ImageInputData, ImageLabelPredictions>().FromUri(x);
+
+
+
+
+            // _mlnetModelFilePath = GetAbsolutePath(Configuration["MLModel:MLNETModelFilePath"]);
+
+
+            builder.Services.AddPredictionEnginePool<ImageInputData, ImageLabelPredictions>().FromFile("MLNETModelFilePath", "TFInceptionModel/PredictionModel.zip");
 
             builder.Services.AddSingleton<ImageClassificationService>();
 
             await builder.Build().RunAsync();
         }
-        
     }
 }
 
 //https://github.com/dotnet/aspnetcore/issues/22400
+
+//télécharger dans une variable 
+
+//ssh nom de la machine 
+//port 80

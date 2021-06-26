@@ -24,6 +24,11 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "MLModel": {
+        "TensorFlowModelFilePath": "ML/TensorFlowModel/model.pb",
+        "MLNETModelFilePath": "TFInceptionModel/PredictionModel.zip",
+        "LabelsFilePath": "TFInceptionModel/imagenet_comp_graph_label_strings.txt"
       }
     }
   }
