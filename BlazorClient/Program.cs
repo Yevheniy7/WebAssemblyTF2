@@ -15,8 +15,6 @@ namespace BlazorClient
     public class Program
 
     {
-        private readonly string _mlnetModelFilePath;
-
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -29,15 +27,10 @@ namespace BlazorClient
 
             Uri BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
             String x = BaseAddress.ToString() + "data/TFInceptionModel/PredictionModel.zip";
+
+
             //Problem here
-
-
-
-
-            // _mlnetModelFilePath = GetAbsolutePath(Configuration["MLModel:MLNETModelFilePath"]);
-
-
-            builder.Services.AddPredictionEnginePool<ImageInputData, ImageLabelPredictions>().FromFile("MLNETModelFilePath", "TFInceptionModel/PredictionModel.zip");
+            builder.Services.AddPredictionEnginePool<ImageInputData, ImageLabelPredictions>().FromFile("TFInceptionModel/PredictionModel.zip");
 
             builder.Services.AddSingleton<ImageClassificationService>();
 

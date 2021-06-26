@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.ML;
 using ModelBuilder.DataModel;
+using System.Drawing;
 
 namespace BlazorClient.Data
 {
@@ -1013,6 +1013,7 @@ namespace BlazorClient.Data
 "dumbbell"};
 
         private PredictionEnginePool<ImageInputData, ImageLabelPredictions> _predictionEnginePool;
+        private Image imageC;
 
         public ImageClassificationService(PredictionEnginePool<ImageInputData, ImageLabelPredictions> predictionEnginePool)
         {
@@ -1038,6 +1039,7 @@ namespace BlazorClient.Data
 
             // Convert to Bitmap
             Bitmap bitmapImage = (Bitmap)Image.FromStream(image);
+
 
             // Set the specific image data into the ImageInputData type used in the DataView
             ImageInputData imageInputData = new ImageInputData { Image = bitmapImage };

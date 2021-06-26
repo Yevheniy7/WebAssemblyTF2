@@ -1,4 +1,6 @@
 ﻿using Microsoft.ML.Transforms.Image;
+using System;
+using SixLabors.ImageSharp;
 using System.Drawing;
 
 namespace ModelBuilder.DataModel
