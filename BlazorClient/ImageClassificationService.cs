@@ -10,7 +10,7 @@ namespace BlazorClient.Data
 {
     public class ImageClassificationService
     {
-        private string[] _labels = new string[] {"dummy",
+        private readonly string[] _labels = new string[] {"dummy",
 "kit fox",
 "English setter",
 "Siberian husky",
@@ -1018,7 +1018,7 @@ namespace BlazorClient.Data
         {
             _predictionEnginePool = predictionEnginePool;
 
-            //probleme here
+            
             string labelsFileLocation = "TFInceptionModel/imagenet_comp_graph_label_strings.txt";
 
             string rootDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../"));

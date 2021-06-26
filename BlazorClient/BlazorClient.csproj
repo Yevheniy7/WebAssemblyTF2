@@ -4,6 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <None Remove="TFInceptionModel\imagenet_comp_graph_label_strings.txt" />
@@ -24,11 +28,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.5" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.ML" Version="1.5.5" />
+    <!--<PackageReference Include="Microsoft.ML" Version="1.5.5" />-->
+    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="1.5.5" />
+    <PackageReference Include="Microsoft.ML.TensorFlow" Version="1.5.5" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ModelBuilder\ModelBuilder.csproj" />
   </ItemGroup>
 
 
